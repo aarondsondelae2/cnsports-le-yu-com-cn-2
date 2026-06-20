@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 产品说明与使用参考</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f0;
+            color: #2c2c2c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .page-wrap {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        /* hero 区域 */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            background: #fafaf7;
+            border-radius: 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e6e6df;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 380;
+            letter-spacing: 0.02em;
+            color: #2b5a4a;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            max-width: 580px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #4f5d55;
+        }
+
+        /* 卡片系统 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #fcfcf9;
+            border: 1px solid #deddd6;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 6px 14px -6px rgba(0,0,0,0.05);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 20px -8px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            border-left: 5px solid #8fbcb3;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            color: #2a594b;
+        }
+
+        .card p, .card li {
+            color: #3d4943;
+        }
+
+        .card ul {
+            padding-left: 1.5rem;
+            list-style: none;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.3rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #7a9f92;
+            font-weight: 700;
+        }
+
+        .inline-link {
+            color: #3a6f5f;
+            text-decoration: none;
+            border-bottom: 1px dotted #b6cfc4;
+            font-weight: 400;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .inline-link:hover {
+            border-bottom: 1px solid #2b5a4a;
+            color: #1f4238;
+        }
+
+        /* 场景与提示双列 */
+        .row-split {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .split-item {
+            flex: 1 1 260px;
+            background: #fcfcf9;
+            border: 1px solid #deddd6;
+            border-radius: 24px;
+            padding: 1.8rem 1.8rem;
+            box-shadow: 0 6px 14px -6px rgba(0,0,0,0.04);
+        }
+
+        .split-item h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #2a594b;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #e0e8e3;
+        }
+
+        .split-item p, .split-item li {
+            font-size: 0.98rem;
+            color: #3d4943;
+        }
+
+        .faq-mini {
+            background: #fcfcf9;
+            border: 1px solid #deddd6;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 6px 14px -6px rgba(0,0,0,0.04);
+            margin-bottom: 2rem;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #2a594b;
+            margin-bottom: 0.8rem;
+            border-left: 5px solid #8fbcb3;
+            padding-left: 1rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1e4438;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            margin-left: 0.6rem;
+            color: #3d4943;
+        }
+
+        .footnote {
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 1.5rem 0 0.5rem;
+            border-top: 1px solid #e0e0d8;
+            color: #6a7a70;
+        }
+
+        .footnote a {
+            color: #3a6f5f;
+            text-decoration: none;
+            border-bottom: 1px dotted #b6cfc4;
+        }
+
+        .footnote a:hover {
+            border-bottom: 1px solid #1f4238;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .card, .faq-mini, .split-item {
+                padding: 1.4rem 1.2rem;
+            }
+            .row-split {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>爱游戏 · 产品说明</h1>
+        <p>面向日常查询与延伸阅读的内容平台，提供对照式的信息整理，帮助你更从容地了解游戏相关主题。</p>
+    </div>
+
+    <!-- 卡片：摘要与亮点 -->
+    <div class="card-grid">
+        <div class="card">
+            <h2>摘要与定位</h2>
+            <p><a href="https://chinese-aiyouxisports.com" class="inline-link">爱游戏</a>是一个围绕游戏文化、作品资讯及背景梳理的内容聚合页面。它并非单一游戏的门户，而是更侧重于多维度对照——你可以在这里找到不同作品的简析、玩法演变以及社区视角的延伸材料。整体内容以整理和介绍为主，适合在查找资料、对比选题或单纯拓宽阅读范围时使用。</p>
+            <p style="margin-top: 0.8rem;">站内文章大多采用平实的笔调，避免过度渲染，保持信息的中性。对于希望快速建立游戏知识框架，或需要参考不同观点的人来说，这是一个不错的起点。</p>
+        </div>
+
+        <div class="card">
+            <h2>亮点特征</h2>
+            <ul>
+                <li><strong>对照式条目</strong>——许多页面按主题罗列多种游戏/版本的特点，方便横向比较。</li>
+                <li><strong>延伸阅读链接</strong>——文章末尾常附带关联话题，利于连续浏览和深入。</li>
+                <li><strong>轻量叙述</strong>——不堆砌术语，优先用日常语言解释机制与背景。</li>
+                <li><strong>更新节奏稳定</strong>——内容持续补充，覆盖经典与近期热议作品。</li>
+                <li><strong>无强制推广</strong>——内容独立组织，不依赖外部跳转或下载引导。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 使用建议 + 场景（双列） -->
+    <div class="row-split">
+        <div class="split-item">
+            <h3>建议使用场景</h3>
+            <ul style="padding-left: 0; list-style: none;">
+                <li style="position: relative; padding-left: 1.4rem; margin-bottom: 0.6rem;">· 查询某款游戏的基础玩法和风格定位。</li>
+                <li style="position: relative; padding-left: 1.4rem; margin-bottom: 0.6rem;">· 对比同一系列不同代际的设计差异。</li>
+                <li style="position: relative; padding-left: 1.4rem; margin-bottom: 0.6rem;">· 寻找冷门或独立游戏的大致介绍，辅助决策是否尝试。</li>
+                <li style="position: relative; padding-left: 1.4rem; margin-bottom: 0.6rem;">· 阅读非正式但清晰的游戏文化随笔。</li>
+            </ul>
+            <p style="margin-top: 0.8rem;">在这些场景下，<a href="https://chinese-aiyouxisports.com" class="inline-link">爱游戏</a>的内容结构能让信息获取更直接，减少筛选成本。</p>
+        </div>
+        <div class="split-item">
+            <h3>阅读提示</h3>
+            <p>站内信息基于公开资料与社区讨论整理，不构成官方立场。部分文章包含主观整理角度，建议在需要精确数据或最新动态时，同时参考官方来源或实机演示。</p>
+            <p style="margin-top: 0.8rem;">另外，网站目前以内容浏览为主，不提供下载、交易或账号服务。请留意区分。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>FAQ 摘要</h2>
+        <div class="faq-item">
+            <strong>Q：内容偏向哪些游戏类型？</strong>
+            <p>A：涵盖范围较广，从动作角色扮演、策略模拟到休闲解谜都有涉及，以有中文社区讨论基础的作品居多。</p>
+        </div>
+        <div class="faq-item">
+            <strong>Q：文章会标注日期吗？</strong>
+            <p>A：大部分文章会注明整理或最后更新月份，便于判断时效性。</p>
+        </div>
+        <div class="faq-item">
+            <strong>Q：是否可以转载站内内容？</strong>
+            <p>A：建议先参考页面上可能的版权声明，若未明确说明，转载时请注明原始出处 <a href="https://chinese-aiyouxisports.com" class="inline-link">爱游戏</a>，并保持内容完整。</p>
+        </div>
+    </div>
+
+    <!-- 结尾：可信且克制的访问说明 -->
+    <div style="background: #fcfcf9; border: 1px solid #deddd6; border-radius: 24px; padding: 1.5rem 2rem; box-shadow: 0 6px 14px -6px rgba(0,0,0,0.04); margin-bottom: 1.5rem;">
+        <p style="color: #3d4943;">本介绍页仅作为产品说明，帮助你预先了解网站的类型与适用方向。如果你正在寻找游戏资讯对照阅读或延伸参考，可以试试直接浏览 <a href="https://chinese-aiyouxisports.com" class="inline-link">爱游戏</a> 的页面，根据自身兴趣选择内容。保持信息习惯的自主性，比任何推荐都重要。</p>
+    </div>
+
+    <div class="footnote">
+        <p>内容方向 · 日常查询 · 对照阅读 · 延伸浏览 &nbsp;|&nbsp; <a href="https://chinese-aiyouxisports.com">爱游戏</a></p>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国体彩 · 站点介绍与可信说明</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fde7cf 0%, #f9d7b0 40%, #f5c89a 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: #2c221b;
+        }
+
+        .page {
+            max-width: 860px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #fffbf8;
+            border-radius: 32px;
+            box-shadow: 0 12px 32px -8px rgba(150, 90, 40, 0.18), 0 4px 8px rgba(0, 0, 0, 0.02);
+            padding: 2.5rem 2.2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 16px 40px -10px rgba(160, 100, 50, 0.22);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin: 0 0 0.25rem 0;
+            background: linear-gradient(135deg, #b45f2a, #8b4a1f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            color: #7f5f43;
+            font-size: 1.05rem;
+            border-left: 4px solid #d99b6a;
+            padding-left: 1rem;
+            margin: 0.3rem 0 1.8rem 0;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 1.8rem 0 0.8rem 0;
+            color: #3d2c1d;
+            border-bottom: 2px solid #f0dac8;
+            padding-bottom: 0.25rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0.2rem;
+        }
+
+        p {
+            margin: 0.8rem 0;
+            font-size: 1rem;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0 0.5rem 0;
+        }
+
+        .highlight-list li {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 0.7rem;
+            font-size: 0.98rem;
+            align-items: flex-start;
+        }
+
+        .highlight-list li::before {
+            content: "•";
+            color: #c1783e;
+            font-weight: bold;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1rem;
+            margin: 1.2rem 0 0.6rem 0;
+        }
+
+        .tag {
+            background: #f2e4d8;
+            color: #4c3422;
+            padding: 0.25rem 1.1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 450;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+
+        .scene-box {
+            background: #f8efe7;
+            border-radius: 20px;
+            padding: 1.4rem 1.6rem;
+            margin: 1.6rem 0 0.4rem 0;
+        }
+
+        .scene-box p {
+            margin: 0.3rem 0;
+        }
+
+        .btn-like-link {
+            display: inline-block;
+            background: #d99b6a;
+            color: #ffffff;
+            padding: 0.3rem 1.1rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background 0.15s, transform 0.1s;
+            box-shadow: 0 2px 6px rgba(180, 105, 45, 0.15);
+        }
+
+        .btn-like-link:hover {
+            background: #c17f4a;
+            transform: scale(1.02);
+        }
+
+        a.textual-link {
+            color: #a6602c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #dbb496;
+            padding-bottom: 1px;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a.textual-link:hover {
+            color: #7f451a;
+            border-bottom-color: #a6602c;
+        }
+
+        .faq-item {
+            margin: 1rem 0;
+            padding: 0.6rem 0 0.4rem 0;
+            border-bottom: 1px dashed #e7d4c4;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            color: #3d2c1d;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-answer {
+            color: #4a3a2b;
+            margin-left: 0.2rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #6f5643;
+            padding: 1.5rem 0 0.5rem 0;
+            border-top: 1px solid #ebd6c5;
+            margin-top: 0.8rem;
+        }
+
+        .footer-note a {
+            color: #7a4f2c;
+            text-decoration: none;
+            border-bottom: 1px solid #dbb496;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #7a4f2c;
+        }
+
+        @media (max-width: 580px) {
+            .card {
+                padding: 1.6rem 1.2rem;
+                border-radius: 24px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .subhead {
+                font-size: 0.95rem;
+                padding-left: 0.7rem;
+            }
+            .tag-group {
+                gap: 0.5rem 0.7rem;
+            }
+            .tag {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.9rem;
+            }
+            .scene-box {
+                padding: 1rem 1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .card {
+                padding: 1.2rem 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 卡片 -->
+    <div class="card">
+        <h1>中国体彩 · 站点导览</h1>
+        <div class="subhead">关于 <strong>sina-lotto.com</strong> 的定位、特点与使用场景</div>
+
+        <p>这是一个围绕「中国体彩」信息整理与索引的聚合站点。它不以直接投注为目的，而是提供彩票知识、公益金动向、玩法介绍以及相关资讯的快速入口。无论你希望了解体彩品种、核对规则，还是想寻找可信的信息来源，都可以从该站出发。</p>
+
+        <p>站点本身保持信息中立，所有内容均基于公开资料与官方渠道整理，力求准确、克制，不渲染中奖预期，不推荐任何非理性行为。</p>
+    </div>
+
+    <!-- 亮点 / 特点 -->
+    <div class="card">
+        <h2>站点亮点一览</h2>
+        <ul class="highlight-list">
+            <li>内容聚合于体彩核心信息，涵盖超级大乐透、排列3、排列5、七星彩、竞彩等主流玩法的基础规则与术语说明。</li>
+            <li>公益金使用方向与案例设有专门板块，用公开数据展示体彩社会责任。</li>
+            <li>页面结构清晰，移动端适配良好，方便快速查找常用信息。</li>
+            <li>不嵌入第三方广告或弹窗，浏览体验简洁安静。</li>
+        </ul>
+
+        <div class="tag-group">
+            <span class="tag">信息聚合</span>
+            <span class="tag">玩法说明</span>
+            <span class="tag">公益金动态</span>
+            <span class="tag">无诱导内容</span>
+            <span class="tag">移动友好</span>
+        </div>
+
+        <p style="margin-top:1.2rem;">此外，站内设有常见问题与官方链接汇总，帮助浏览者快速区隔信息来源。如果你希望直接了解体彩背景，<a href="https://sina-lotto.com" class="textual-link">中国体彩</a> 的整体框架在这个站点内有比较完整的梳理。</p>
+    </div>
+
+    <!-- 使用建议 + 场景 -->
+    <div class="card">
+        <h2>建议使用场景</h2>
+        <div class="scene-box">
+            <p><strong>快速查阅玩法规则</strong><br>
+            例如超级大乐透的前区后区范围、奖级设置；排列3直选组选区别等。站点将各玩法要点整理为独立页面，比在官方公告中逐条搜索更省时。</p>
+            <p style="margin-top:0.8rem;"><strong>了解体彩公益金流向</strong><br>
+            每年财政部都会公布彩票公益金分配情况，站点摘录了部分代表性案例与用途分类，适合公益关注者或研究人士参考。</p>
+            <p style="margin-top:0.8rem;"><strong>核对开奖号码与规则变更</strong><br>
+            虽然开奖号码以财政部及体彩中心官网为准，但该站会汇总最近几期的开奖号码与调整通知，方便日常对照。</p>
+        </div>
+        <p style="margin-top:0.6rem;">以上场景均建立在理性参与的前提上。无论何种使用目的，都建议以官方发布为最终依据。</p>
+    </div>
+
+    <!-- 可信说明 + FAQ 摘要 -->
+    <div class="card">
+        <h2>可信但克制的访问说明</h2>
+        <p>sina-lotto.com 并非体彩官方站点，亦不代购、不兑奖、不提供任何形式的投注服务。站内信息均整理自国家体育总局体育彩票管理中心、财政部公告及权威媒体报道，并注明出处。运营方保持信息更新，但不对因信息滞后或引用偏差造成的后果承担责任。</p>
+        <p>浏览者应始终将<a href="https://sina-lotto.com" class="textual-link">中国体彩</a>官方渠道（如官网、官方公众号）视为最可靠信息来源。本站内容更适合作为辅助阅读与日常索引，而非决策唯一依据。</p>
+
+        <div style="margin:1.6rem 0 0.4rem 0;">
+            <div class="faq-item">
+                <div class="faq-question">— 站点是否接入在线购买？</div>
+                <div class="faq-answer">不接入。根据现行法规，互联网彩票销售已全面停止，本站不设任何购买入口或跳转链接。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">— 内容更新频率如何？</div>
+                <div class="faq-answer">常规内容（玩法说明、公益金资料）按需修订；开奖号码通常在开奖次日同步。遇到规则变更时会第一时间更新。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">— 是否收集用户信息？</div>
+                <div class="faq-answer">本站无注册、评论或表单功能，不主动收集任何个人数据。仅使用基础访问统计（匿名化）。</div>
+            </div>
+        </div>
+
+        <p style="margin-top:0.6rem;">如果你对站内某部分信息的准确性存疑，欢迎通过站点页脚提供的联系方式反馈。持续修正与透明化是运营方坚持的原则。</p>
+    </div>
+
+    <!-- 补充提示 -->
+    <div class="card" style="padding:1.6rem 2.2rem 1.2rem 2.2rem;">
+        <p style="font-size:0.98rem; color:#4d3b2c;"><strong>简要提示：</strong> 彩票本质是概率游戏，每一注的中奖概率均为独立随机事件。请合理规划支出，量力而行。任何宣称“必中”“内幕”的信息均不属实。</p>
+        <p style="margin-top:0.6rem; font-size:0.95rem; color:#5b4636;">如果你希望进一步探索，可直接浏览 <a href="https://sina-lotto.com" class="textual-link">中国体彩</a> 站点，从导航栏选择感兴趣的板块。</p>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p>站点介绍 · 真实可信的信息聚合 · 不构成任何投注建议</p>
+        <p style="font-size:0.88rem; margin-top:0.4rem;">sina-lotto.com 与官方体彩机构无隶属关系 · 参考来源已标注</p>
+    </div>
+</div>
+</body>
+</html>

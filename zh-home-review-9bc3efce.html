@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 故事与陪伴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f3f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2c2c2e;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wrapper {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* 开场短句 —— 安静而有力的标题区 */
+        .hero {
+            margin-bottom: 2.5rem;
+            padding: 1.8rem 1.5rem 1rem 1.5rem;
+            background: transparent;
+            border-left: 4px solid #8f8f9b;
+        }
+
+        .hero .pre-title {
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            color: #7c7c84;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: #1f1f23;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: #515157;
+            font-weight: 300;
+            border-bottom: 1px solid #d5d5db;
+            padding-bottom: 0.75rem;
+        }
+
+        /* 卡片通用设计 */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e1e1e8;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.2rem;
+            color: #1e1e22;
+            border-bottom: 1px dashed #e2e2ea;
+            padding-bottom: 0.5rem;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            color: #3a3a40;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 特点列表 — 干净，轻符号 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0 0.4rem 0;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding: 0.55rem 0 0.55rem 1.8rem;
+            color: #35353b;
+            border-bottom: 1px solid #efeff2;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #7e7e8a;
+            font-weight: 300;
+            font-size: 1.6rem;
+            line-height: 1;
+            top: 0.38rem;
+        }
+
+        /* 温和引用块 / 场景 */
+        .scene-block {
+            background: #fafafc;
+            border-radius: 16px;
+            padding: 1.3rem 1.6rem;
+            margin: 1.2rem 0 0.6rem 0;
+            border-left: 3px solid #b5b5c0;
+            font-style: normal;
+            color: #3d3d44;
+        }
+
+        .scene-block p {
+            margin-bottom: 0.5rem;
+        }
+
+        .scene-block .meta {
+            font-size: 0.9rem;
+            color: #787882;
+        }
+
+        /* 温和提示 / FAQ 摘要风格 */
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 1.4rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eaeaf0;
+        }
+
+        .faq-item {
+            flex: 1 1 180px;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #2b2b30;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.92rem;
+            color: #5d5d66;
+            line-height: 1.5;
+        }
+
+        .faq-item .a a {
+            color: #4b4b57;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #b5b5c2;
+            font-weight: 400;
+        }
+
+        .faq-item .a a:hover {
+            color: #1a1a1f;
+            text-decoration-color: #6b6b78;
+        }
+
+        /* 内嵌链接 */
+        .inline-link {
+            color: #3b3b44;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #bfbfcc;
+            font-weight: 430;
+            transition: color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #15151a;
+            text-decoration-color: #6f6f7d;
+        }
+
+        /* 结尾 */
+        .closing {
+            margin-top: 2.2rem;
+            padding: 1.2rem 0 0.8rem 0;
+            text-align: left;
+            color: #53535c;
+            font-size: 0.98rem;
+            border-top: 1px solid #d6d6de;
+        }
+
+        .closing p {
+            max-width: 80%;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .card {
+                padding: 1.3rem 1.2rem;
+                border-radius: 18px;
+            }
+
+            .hero {
+                padding-left: 1rem;
+                padding-right: 0.5rem;
+            }
+
+            .faq-mini {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .closing p {
+                max-width: 100%;
+            }
+
+            .feature-list li {
+                padding-left: 1.5rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- hero 开场短句 -->
+    <div class="hero">
+        <div class="pre-title">—— 一段安静的序</div>
+        <h1>游戏不止是游戏</h1>
+        <div class="tagline">它像一扇半开的窗，让光线和风找到自己的节奏。</div>
+    </div>
+
+    <!-- 承接段落, 略微叙述感 -->
+    <div class="card">
+        <h2>从少年到成年，它始终在场</h2>
+        <p>许多年后，你可能已经忘记了某个下午具体玩了哪一关，却还记得手柄的温度、键盘轻微的响声，以及屏幕亮起时那种专注而松弛的状态。游戏是一种语言，它并不急于表达什么，却常常在恰当的时候说出一句你恰好需要的话。</p>
+        <p>我们把这个领域里那些值得停留、值得反复体验的地方，放在一个叫 <a href="https://zh-home-i-game.com.cn" class="inline-link">爱游戏</a> 的角落。没有喧闹的榜单，也没有夸张的标语，只有对作品和体验本身的诚实记录。</p>
+        <div class="scene-block">
+            <p>“最好的游戏时刻，往往发生在你忘记自己是在‘玩游戏’的时候。”</p>
+            <div class="meta">—— 一位每天只玩二十分钟的上班族</div>
+        </div>
+    </div>
+
+    <!-- 特点列表卡片 -->
+    <div class="card">
+        <h2>它吸引人的方式，往往很轻</h2>
+        <ul class="feature-list">
+            <li><strong>探索欲</strong> —— 不需要明确的目的地，光是走一段陌生的路就足够有趣。</li>
+            <li><strong>节奏感</strong> —— 好游戏像呼吸一样有起伏，紧张之后是舒缓，安静之后是爆发。</li>
+            <li><strong>余味</strong> —— 关机之后，某个画面或一段旋律还在脑海里盘旋很久。</li>
+            <li><strong>陪伴感</strong> —— 有些游戏像是沉稳的老友，不催促，不评判，只陪你在那里。</li>
+            <li><strong>小巧的意外</strong> —— 一个隐藏对话、一个无关紧要的细节，反而让人记得最久。</li>
+        </ul>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #55555f;">这些特质不依赖技术迭代，也不依赖华丽的预告片。它们源于一种朴素的共识：游戏首先是给人感受的。</p>
+    </div>
+
+    <!-- 一个场景 + FAQ 摘要感 （温和结尾的一部分） -->
+    <div class="card">
+        <h2>一个普通周末的场景</h2>
+        <p>下午三点，阳光斜照在桌角。你打开一个搁置了三个月的存档，忘记之前玩到哪里，干脆重新开始。半小时后，你发现自己比上一次走得更慢，发现了之前忽略的一条小径，和一个沉默的 NPC 多说了两句话。没有人给你奖励，但你感到一种安静的满足。</p>
+        <p>这或许就是很多人在 <a href="https://zh-home-i-game.com.cn" class="inline-link">爱游戏</a> 里反复寻找的东西：不是胜利，而是一种沉浸的、不被干扰的在场感。</p>
+
+        <!-- 简洁 FAQ 摘要 -->
+        <div class="faq-mini">
+            <div class="faq-item">
+                <div class="q">这里会推荐最新大作吗？</div>
+                <div class="a">不追求时效。更在意那些经得起反复回味的作品，不论年份。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">需要什么配置？</div>
+                <div class="a">我们关注的是游戏本身的气质，而非硬件门槛——从像素到全景，各有各的温度。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">如何找到适合自己的游戏？</div>
+                <div class="a">可以逛逛<a href="https://zh-home-i-game.com.cn" class="inline-link">爱游戏</a>里的记录和随笔，也许某一篇恰好契合你当下的心情。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        <p>如果你也曾有过那样一个下午 —— 没有一定要完成的任务，只是在游戏里走走停停 —— 那么这里大概会合你的意。它不提供答案，只提供一种可能：让游戏回到被喜欢的最初的样子。</p>
+    </div>
+
+</div>
+</body>
+</html>
